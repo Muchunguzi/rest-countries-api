@@ -1,11 +1,12 @@
 import React from "react";
+import {FaMoon} from "react-icons/fa"
 
 const Header = () => {
     return (
         <div className="header">
-            <p>Where in the World?</p>
+            <p style={{fontWeight:"bold"}}>Where in the World?</p>
             <span className="space-between"></span>
-             <button className="theme-changer">Dark Mode</button>
+             <button className="theme-changer"><FaMoon /> Dark Mode</button>
         </div>
     )
 }

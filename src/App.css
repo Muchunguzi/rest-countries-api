@@ -1,13 +1,14 @@
 .App {
   text-align: center;
+  margin: auto 2.5%;
 }
 
 .header{
-  border: 1px solid brown;
+ 
   display: flex;
   flex-direction: row;
 }
 
 .space-between{
-  border: 1px solid red;
+  width: 83% ;
 }
