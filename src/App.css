@@ -1,0 +1,14 @@
+.App {
+  text-align: center;
+  margin: auto 2.5%;
+}
+
+.header{
+ 
+  display: flex;
+  flex-direction: row;
+}
+
+.space-between{
+  width: 83% ;
+}
