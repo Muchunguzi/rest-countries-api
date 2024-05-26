@@ -5,10 +5,10 @@ const Body = () => {
     return (
         <div>
           <section className="filterSection">
-           <lable for="search"> 
-           <FaSearch />
+           <label for="search"> 
+           <FaSearch style={{position: 'start'}}/>
             <input id="search" type="search" name="search" placeholder="search for a country..." />
-           </lable>
+           </label>
            <select>
             <option selected>Filter by region</option>
             <option>Africa</option>
