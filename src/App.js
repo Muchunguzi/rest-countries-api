@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       < header>
-       <h2>Where in the world ? Are you from man </h2>
+       <h2>Where in the world ?</h2>
        <p><FaMoon /> Dark Mode</p>
       </header>
       <main_body />
