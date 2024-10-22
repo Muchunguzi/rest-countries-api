@@ -8,9 +8,12 @@ const [data , setData] = useState([]) //Store JSON data
 
 useEffect(() => {
   // Fetch the local JSON file
-  fetch('/data.json')
+  fetch(`/data.json?timestamp=${new Date().getTime()}`) //Append timeStamp to avoid caching
   .then((response) => response.json())
-  .then((jsonData) => setData(jsonData))
+  .then((jsonData) => {
+    
+    console.log(jsonData) // checking the structure of my data
+    setData(jsonData)})
   .catch((error) => console.error('Error fetching data: ', error));
 }, []); // Empty dependency array to fetch only once when the component mounts
 
@@ -21,7 +24,6 @@ useEffect(() => {
        <h2>Where in the world ?</h2>
        <p><FaMoon /> Dark Mode</p>
       </header>
-      <main_body />
       <Search data={data} />{/* Pass the fetched data to search component */}
     </div>
   );
