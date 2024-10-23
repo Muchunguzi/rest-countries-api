@@ -8,8 +8,14 @@ const [data , setData] = useState([]) //Store JSON data
 
 useEffect(() => {
   // Fetch the local JSON file
-  fetch(`/data.json?timestamp=${new Date().getTime()}`) //Append timeStamp to avoid caching
-  .then((response) => response.json())
+  fetch("http://localhost:3000/rest-countries-api/data.json") 
+  .then((response) => 
+  {
+    console.log(response);
+    return response.json();
+  }
+    
+    )
   .then((jsonData) => {
     
     console.log(jsonData) // checking the structure of my data
