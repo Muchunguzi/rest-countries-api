@@ -1,4 +1,5 @@
 import React , {useState} from "react";
+import { FaSearch} from "react-icons/fa";
 
 const Search = ({data}) => {
 
@@ -24,10 +25,11 @@ const Search = ({data}) => {
 
     return (
         <div>
+            < FaSearch/> 
             <input
             
             type="text"
-            placeholder="Search..."
+            placeholder = "Search for a country..."
             value={searchTerm}
             onChange = {handleChange}
             

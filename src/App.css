@@ -34,6 +34,13 @@ header{
   color: #61dafb;
 }
 
+.nav_bar{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 50px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

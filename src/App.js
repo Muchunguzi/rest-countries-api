@@ -1,5 +1,6 @@
 import React , {useState , useEffect} from "react";
 import Search from  "./components/Search";
+import Filter from "./components/Filter";
 import {FaMoon} from   "react-icons/fa";
 import "./App.css";
 
@@ -19,11 +20,17 @@ function App(){
    
    return (
     <div className = "App">
+
       <header>
         <h1>Where are you from ? </h1>
         <h2><FaMoon /> Dark Mode</h2>
       </header>
+
+      <nav className="nav_bar">
       <Search data={data}  /> {/*  Pass the fetched data to the search component*/}
+      <Filter/>
+      </nav>
+
     </div>
    )
 
