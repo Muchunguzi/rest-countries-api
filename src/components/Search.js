@@ -1,5 +1,7 @@
 import React , {useState} from "react";
 import { FaSearch} from "react-icons/fa";
+import Country from "./Country";
+import "./Search.css";
 
 const Search = ({data}) => {
 
@@ -24,7 +26,7 @@ const Search = ({data}) => {
 
 
     return (
-        <div>
+        <div className="Search">
             < FaSearch/> 
             <input
             
@@ -34,13 +36,21 @@ const Search = ({data}) => {
             onChange = {handleChange}
             
             />
-            <ul>
+            <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" , border: "1px solid black", marginLeft: "5%"}}>
             {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((item, index) => (
-                    <li key={index}>
-                    <img src={item.flag} alt="flag for this country" width="30%" /> <br />
+                    <li 
+                    style={{
+                        listStyleType: "none",
+                         display: "grid" ,
+                         grid:"1f 1f 1f"
+                          }} 
+                          key={index}
+                        >
+                    <img src={item.flag} width="80%" />
                     {item.name}
+                    <Country />
                     </li>
-                )) : <li>Search is inValid!</li>
+                )) : <li style={{listStyleType: "none"}}></li>
             }
             </ul>
         </div>
