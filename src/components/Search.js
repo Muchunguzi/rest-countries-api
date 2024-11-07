@@ -46,9 +46,7 @@ const Search = ({data}) => {
                           }} 
                           key={index}
                         >
-                    <img src={item.flag} width="80%" />
-                    {item.name}
-                    <Country />
+                    <Country item={item} />
                     </li>
                 )) : <li style={{listStyleType: "none"}}></li>
             }
