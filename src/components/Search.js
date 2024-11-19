@@ -10,10 +10,13 @@ const Search = ({data}) => {
     const [searchTerm , setSearchTerm] = useState("");
     const [filteredSearchTerm , setFilteredSearchTerm] = useState([]); 
     const [isOpen, setIsOpen] = useState(false);
+    const [isClicked, setIsClicked] = useState(false);
 
 
     const toggleCountryDetails = () => {
+        console.log("I was clicked!");
         setIsOpen(!isOpen);
+        setIsClicked(!isClicked);
     }
 
     const handleChange = (event) => {
