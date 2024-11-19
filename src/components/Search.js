@@ -1,13 +1,20 @@
 import React , {useState} from "react";
 import { FaSearch} from "react-icons/fa";
 import Country from "./Country";
+import CountryDetails from "./CountryDetails";
 import "./Search.css";
 
 const Search = ({data}) => {
 
 
     const [searchTerm , setSearchTerm] = useState("");
-    const [filteredSearchTerm , setFilteredSearchTerm] = useState([]);
+    const [filteredSearchTerm , setFilteredSearchTerm] = useState([]); 
+    const [isOpen, setIsOpen] = useState(false);
+
+
+    const toggleCountryDetails = () => {
+        setIsOpen(!isOpen);
+    }
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -27,6 +34,7 @@ const Search = ({data}) => {
 
     return (
         <div className="Search">
+            <div>
             < FaSearch/> 
             <input
             
@@ -36,7 +44,10 @@ const Search = ({data}) => {
             onChange = {handleChange}
             
             />
-            <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" , border: "1px solid black", marginLeft: "5%"}}>
+            </div>
+            
+            <div>
+            <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" ,  marginLeft: "5%"}}>
             {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((item, index) => (
                     <li 
                     style={{
@@ -46,11 +57,15 @@ const Search = ({data}) => {
                           }} 
                           key={index}
                         >
-                    <Country item={item} />
+                    <Country item={item} onClick={toggleCountryDetails} />
+                    {isOpen && <CountryDetails />}
                     </li>
                 )) : <li style={{listStyleType: "none"}}></li>
             }
             </ul>
+            </div>
+         
+       
         </div>
     )
 
