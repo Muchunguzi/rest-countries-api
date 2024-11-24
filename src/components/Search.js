@@ -2,6 +2,7 @@ import React , {useState} from "react";
 import { FaSearch} from "react-icons/fa";
 import Country from "./Country";
 import CountryDetails from "./CountryDetails";
+
 import "./Search.css";
 
 const Search = ({data}) => {
@@ -10,14 +11,12 @@ const Search = ({data}) => {
     const [searchTerm , setSearchTerm] = useState("");
     const [filteredSearchTerm , setFilteredSearchTerm] = useState([]); 
     const [isOpen, setIsOpen] = useState(false);
-    const [isClicked, setIsClicked] = useState(false);
+    const [view, setView] = useState("search");
+
+    
 
 
-    const toggleCountryDetails = () => {
-        console.log("I was clicked!");
-        setIsOpen(!isOpen);
-        setIsClicked(!isClicked);
-    }
+
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -33,6 +32,12 @@ const Search = ({data}) => {
             setFilteredSearchTerm([]);
         }
     }
+
+    const toggleCountryDetails = () => {
+        console.log("I was clicked!");
+        setIsOpen((prev) => !prev);
+    }
+
 
 
     return (
@@ -50,23 +55,36 @@ const Search = ({data}) => {
             </div>
             
             <div>
-            <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" ,  marginLeft: "5%"}}>
-            {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((item, index) => (
-                    <li 
-                    style={{
-                        listStyleType: "none",
-                         display: "grid" ,
-                         grid:"1f 1f 1f"
-                          }} 
-                          key={index}
-                        >
-                    <Country item={item} onClick={toggleCountryDetails} />
-                    {isOpen && <CountryDetails />}
-                    </li>
-                )) : <li style={{listStyleType: "none"}}></li>
+            { view === "search" && 
+               
+               <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" ,  marginLeft: "5%"}}>
+               {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((item, index) => (
+                       <li 
+                       style={{
+                           listStyleType: "none",
+                            display: "grid" ,
+                            grid:"1f 1f 1f"
+                             }} 
+                             key={index}
+                           >
+                       <Country item={item} toggleCountryDetails={toggleCountryDetails} />
+                       </li>
+                   )) : <li style={{listStyleType: "none"}}></li>
+               }
+               </ul>
             }
-            </ul>
-            </div>
+
+
+            { view === "details" && 
+               
+               < CountryDetails />
+
+            }
+            
+               </div>
+            
+            
+           
          
        
         </div>
