@@ -10,7 +10,8 @@ const Search = ({data}) => {
 
     const [searchTerm , setSearchTerm] = useState("");
     const [filteredSearchTerm , setFilteredSearchTerm] = useState([]); 
-    const [isOpen, setIsOpen] = useState(false);
+    
+    const [selectCountry, setSelectedCountry] = useState(null);
     const [view, setView] = useState("search");
 
     
@@ -33,9 +34,10 @@ const Search = ({data}) => {
         }
     }
 
-    const toggleCountryDetails = () => {
+    const toggleCountryDetails = (item) => {
         console.log("I was clicked!");
-        setIsOpen((prev) => !prev);
+        setSelectedCountry(item);
+        setView("details");
     }
 
 

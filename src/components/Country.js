@@ -7,7 +7,7 @@ const Country = ({item , toggleCountryDetails}) => {
     
     return (
      
-        <div className="Country" onClick={toggleCountryDetails}>
+        <div className="Country" onClick={() => toggleCountryDetails(item)}>
          <img src={item.flag} width="100%" alt="country_flag_pic/image_missing"/>
          <h3>{item.name}</h3>
          <p><strong>Population : </strong>{item.population}</p>
