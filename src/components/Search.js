@@ -43,7 +43,7 @@ const Search = ({data}) => {
 
 
     return (
-        <div className="Search">
+        <div className="Search" onChange={toggleCountryDetails}> //tried to make the item in details get notified but failed !
             <div>
             < FaSearch/> 
             <input
@@ -79,7 +79,7 @@ const Search = ({data}) => {
 
             { view === "details" && 
                
-               < CountryDetails />
+               < CountryDetails item={item} />
 
             }
             

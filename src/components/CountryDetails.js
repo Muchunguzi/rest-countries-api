@@ -1,10 +1,22 @@
 import React from "react";
 
-const CountryDetails = () => {
+const CountryDetails = ({item}) => {
 
     return (
-        <div>
-          <h1>Hello viewers!</h1>
+        <div className="countryDetails">
+          <div>
+            <table>
+              <tr>
+                <img src={item.flag} />
+              </tr>
+              <tr>
+
+              </tr>
+            </table>
+          </div>
+          <div>
+
+          </div>
         </div>
     )
 }
