@@ -13,6 +13,7 @@ const Search = ({data}) => {
     
     const [selectCountry, setSelectedCountry] = useState(null);
     const [view, setView] = useState("search");
+    const [countryDetails, setCountryDetails] = useState([]);
 
     
 
@@ -24,8 +25,8 @@ const Search = ({data}) => {
         setSearchTerm(value);
         //Filtering the searched terms based on our json data
         if(value.length > 0){
-            const results = data.filter((item) => 
-                item.name?.toLowerCase().includes(value.toLowerCase())
+            const results = data.filter((country) => 
+                country.name?.toLowerCase().includes(value.toLowerCase())
                 
             )
             setFilteredSearchTerm(results);
@@ -34,16 +35,18 @@ const Search = ({data}) => {
         }
     }
 
-    const toggleCountryDetails = (item) => {
+    const toggleCountryDetails = (country) => {
         console.log("I was clicked!");
-        setSelectedCountry(item);
+        setSelectedCountry(country.name);
         setView("details");
+        setCountryDetails(country);
+       
     }
 
 
 
     return (
-        <div className="Search" onChange={toggleCountryDetails}> //tried to make the item in details get notified but failed !
+        <div className="Search" > 
             <div>
             < FaSearch/> 
             <input
@@ -60,7 +63,7 @@ const Search = ({data}) => {
             { view === "search" && 
                
                <ul  style={{maxHeight:"20", overflowY:"auto" , display: "grid" , gridTemplateColumns: "1fr 1fr 1fr" , width: "100%" , margin: "5% auto" ,  marginLeft: "5%"}}>
-               {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((item, index) => (
+               {filteredSearchTerm.length > 0 ? filteredSearchTerm.map((country, index) => (
                        <li 
                        style={{
                            listStyleType: "none",
@@ -69,7 +72,7 @@ const Search = ({data}) => {
                              }} 
                              key={index}
                            >
-                       <Country item={item} toggleCountryDetails={toggleCountryDetails} />
+                       <Country country={country} toggleCountryDetails={toggleCountryDetails} />
                        </li>
                    )) : <li style={{listStyleType: "none"}}></li>
                }
@@ -79,7 +82,7 @@ const Search = ({data}) => {
 
             { view === "details" && 
                
-               < CountryDetails item={item} />
+               < CountryDetails countryDetails={countryDetails} />
 
             }
             
