@@ -1,4 +1,5 @@
 import React from "react";
+import "./CountryDetails.css";
 
 const CountryDetails = ({countryDetails}) => {
 
@@ -17,17 +18,17 @@ const CountryDetails = ({countryDetails}) => {
                     <tr>
                       <td>
                         
-                        <label>Native-Name: {countryDetails.nativeName}</label><br/>
-                        <label>Population: {countryDetails.population}</label><br />
-                        <label>Region: {countryDetails.region}</label><br />
-                        <label>Sub-Region: {countryDetails.subregion}</label><br />
-                        <label>Capital: {countryDetails.capital}</label><br />
+                        <label><strong>Native-Name: </strong>{countryDetails.nativeName}</label><br/>
+                        <label><strong>Population: </strong>{countryDetails.population}</label><br />
+                        <label><strong>Region: </strong>{countryDetails.region}</label><br />
+                        <label><strong>Sub-Region: </strong>{countryDetails.subregion}</label><br />
+                        <label><strong>Capital: </strong>{countryDetails.capital}</label><br />
                       </td>
 
                       <td>
-                        <label>Top-Level-Domain: {countryDetails.topLevelDomain}</label><br/>
-                        <label>Currencies: {countryDetails.currencies.name}</label><br />
-                        <label>Languages: {}</label><br />
+                        <label><strong>Top-Level-Domain: </strong>{countryDetails.topLevelDomain}</label><br/>
+                        <label><strong>Currencies: </strong>{countryDetails.currencies[0].name}</label><br />
+                        <label><strong>Languages: </strong>{countryDetails.languages[0].name}</label><br />
                       </td>
                     </tr>
                    </table>
