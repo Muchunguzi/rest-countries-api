@@ -18,7 +18,7 @@ const CountryDetails = ({countryDetails}) => {
                   <ul style={{listStyleType: "none"}}>
                     <p>
                     <li><strong>Native-Name: </strong>{countryDetails.nativeName}</li>
-                    </p>
+                    </p> 
                     <p>
                     <li><strong>Population: </strong>{countryDetails.population}</li>
                     </p>
