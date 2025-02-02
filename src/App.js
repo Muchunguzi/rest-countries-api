@@ -10,7 +10,8 @@ function App(){
 
   useEffect(() => {
     //Fetch the local JSON file
-    fetch("https://github.com/Muchunguzi/rest-countries-api/blob/main/public/data.json")
+    fetch("https://raw.githubusercontent.com/Muchunguzi/rest-countries-api/main/public/data.json
+")
     .then((response) => response.json())
     .then((jsonData => {
       setData(jsonData);
